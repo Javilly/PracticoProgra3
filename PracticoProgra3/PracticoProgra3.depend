@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1526388972 source:c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\main.cpp
+	<iostream>
+	"Tablero.h"
+
+1526392168 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\tablero.h
+	"Jugador.h"
+	"Enemigo.h"
+
+1526391866 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\jugador.h
+	"Personaje.h"
+
+1526391821 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\personaje.h
+
+1526391866 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\enemigo.h
+	"Personaje.h"
+

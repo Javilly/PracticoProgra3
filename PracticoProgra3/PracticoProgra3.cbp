@@ -32,7 +32,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Enemigo.h" />
+		<Unit filename="GameManager.h" />
+		<Unit filename="Tablero.h" />
+		<Unit filename="jugador.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="personaje.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
