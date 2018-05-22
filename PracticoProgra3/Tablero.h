@@ -3,17 +3,11 @@
 #include "Jugador.h"
 #include "Enemigo.h"
 
-enum ocupante{
-vacio=0,
-jugador1,
-jugador2,
-enemigo,
-pared
-};
 
 struct casillero{
 int numero;
-ocupante ocup;
+Jugador* ocup;
+bool esPared;
 };
 
 
@@ -29,7 +23,7 @@ public:
 
     Tablero();
     casillero compruebaCasilla(pos);
-    movimiento moverPersonaje(Personaje* personaje,movimiento mov);
+    bool moverPersonaje(Personaje* personaje,movimiento mov);
     void respawnearJugador(Jugador* jugador);
 
 };
