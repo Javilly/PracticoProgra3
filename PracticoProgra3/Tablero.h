@@ -32,15 +32,15 @@ public:
 
     void LeerTablero()
     {
-        vector<int> numbers;
         ifstream inputFile("mapa.txt");
 
         if (inputFile.good())
         {
             int current_number = 0;
-            while (inputFile >> current_number){
-            numbers.push_back(current_number);
-        }
+            while (inputFile >> current_number)
+            {
+                numbers.push_back(current_number);
+            }
 
 
         inputFile.close();
