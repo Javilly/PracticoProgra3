@@ -16,3 +16,25 @@
 1526391866 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\enemigo.h
 	"Personaje.h"
 
+1528204292 source:c:\users\sistemas\documents\practicoprogra3\practicoprogra3\main.cpp
+	"Tablero.h"
+
+1528204804 c:\users\sistemas\documents\practicoprogra3\practicoprogra3\tablero.h
+	"Jugador.h"
+	"Enemigo.h"
+	<iostream>
+	<fstream>
+	<vector>
+
+1528202307 c:\users\sistemas\documents\practicoprogra3\practicoprogra3\jugador.h
+	"personaje.h"
+
+1528202307 c:\users\sistemas\documents\practicoprogra3\practicoprogra3\personaje.h
+	"string.h"
+	<iostream>
+	<time.h>
+	<windows.h>
+
+1528202307 c:\users\sistemas\documents\practicoprogra3\practicoprogra3\enemigo.h
+	"Personaje.h"
+
