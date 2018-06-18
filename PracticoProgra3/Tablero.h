@@ -168,8 +168,11 @@ public:
                 jugador->actualPos = jugador->spawnPoint();
                 tablero[jugador->spawnPoint().x][jugador->spawnPoint().y].ocup = jugador;
             }
+        }else
+        {
+            jugador->currentStatus = cantRevive;
         }
-        jugador->currentStatus = cantRevive;
+
     }
 
 
@@ -181,6 +184,74 @@ public:
     void LeerTablero(){  //Tablero fake para pruebas
         int totalNum = 0;
         int numero= 0;
+        pos spawn1;
+        pos spawn2;
+        pos spawn3;
+        pos spawn4;
+
+        std::string str;
+        std::ifstream file ("c.txt",std::ios::in);
+
+        if (file) {
+            while (!file.eof()) str.push_back(file.get());
+        }
+
+        std::cout << str << '\n';
+        std::string delimiter = ", ";
+
+        size_t pos = 0;
+        std::string token;
+
+        int i = 0;
+        int j = 0;
+        int contador = 0;
+
+        while ((pos = str.find(delimiter)) != std::string::npos)
+        {
+            token = str.substr(0, pos);
+            std::cout << token << std::endl;
+
+            if(contador < 80){
+                tablero[i][j] = std::stoi(token);
+            }
+            else if(contador = 80){
+                spawn1.x = token;
+            }
+            else if(contador = 81){
+                spawn1.y = token;
+            }
+            else if(contador = 82){
+                spawn2.x = token;
+            }
+            else if(contador = 83){
+                spawn2.y = token;
+            }
+            else if(contador = 83){
+                spawn3.x = token;
+            }
+            else if(contador = 83){
+                spawn3.y = token;
+            }
+            else if(contador = 83){
+                spawn4.x = token;
+            }
+
+            str.erase(0, pos + delimiter.length());
+            i++;
+            if(i = 8)
+            {
+                i = 0;
+                j++;
+            }
+        }
+        spawn4.y = str;
+
+        spawns[0] = spawn1;
+        spawns[1] = spawn2;
+        spawns[2] = spawn3;
+        spawns[3] = spawn4;
+
+        /*
         for(int i = 0 ; i< 8 ; i++){
             for(int j = 0 ; j< 8 ; j++){
                 tablero[i][j].numero = numero;
@@ -217,6 +288,8 @@ public:
         spawns[1] = spawn2;
         spawns[2] = spawn3;
         spawns[3] = spawn4;
+        */
+
         }
 
 };
