@@ -65,6 +65,9 @@ public:
         return (tablero[p.x][p.y].ocup == NULL && !tablero[p.x][p.y].esPared);
     }
 
+    int cantidadNumRes(){
+        return cantidadNumerosRestantes;
+    }
 
     void moverPersonaje(Personaje* personaje,movimiento mov){
         pos personajePos = personaje->actualPos;
@@ -107,7 +110,10 @@ public:
         tablero[personajePos.x][personajePos.y].ocup=personaje;
         if(personaje->isAPlayer){
             personaje->puntos+=tablero[personajePos.x][personajePos.y].numero;
-            tablero[personajePos.x][personajePos.y].numero=0;
+            if(tablero[personajePos.x][personajePos.y].numero != 0){
+                cantidadNumerosRestantes--;
+                tablero[personajePos.x][personajePos.y].numero=0;
+            }
         }
     }
 
