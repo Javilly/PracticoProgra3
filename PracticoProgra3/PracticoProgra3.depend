@@ -38,3 +38,28 @@
 1528202307 c:\users\sistemas\documents\practicoprogra3\practicoprogra3\enemigo.h
 	"Personaje.h"
 
+1529282535 source:c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\main.cpp
+	"GameManager.h"
+
+1529284848 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\tablero.h
+	"Jugador.h"
+	"Enemigo.h"
+	<iostream>
+	<fstream>
+	<vector>
+
+1529283027 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\jugador.h
+	"personaje.h"
+
+1529282552 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\personaje.h
+	"string.h"
+	<iostream>
+	<time.h>
+	<windows.h>
+
+1529282572 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\enemigo.h
+	"Personaje.h"
+
+1529284922 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\gamemanager.h
+	"Tablero.h"
+

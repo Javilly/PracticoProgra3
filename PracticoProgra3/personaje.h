@@ -5,6 +5,12 @@
 #include <time.h>
 #include <windows.h>
 
+enum estadoJugador{
+    alive,
+    cantRevive,
+    outOfLifes,
+    dead
+};
 struct pos{
 int x;
 int y;
@@ -17,26 +23,11 @@ izquierda
 };
 
 class Personaje{
-
-protected:
-    pos actualPos;
-    std::string nombre;
-    movimiento ultimoMov;
-
 public:
-    pos getPos(){
-        return this->actualPos;
-    }
-
-    std::string getNombre(){
-        return nombre;
-    }
-
-    void mover(){
-
-    }
-
-
-
+    estadoJugador currentStatus;
+    movimiento ultimoMov;
+    int puntos;
+    bool isAPlayer;
+    pos actualPos;
 };
 #endif // PERSONAJE_H_INCLUDED
