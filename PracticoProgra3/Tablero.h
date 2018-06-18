@@ -183,7 +183,6 @@ public:
 
     void LeerTablero(){  //Tablero fake para pruebas
         int totalNum = 0;
-        int numero= 0;
         pos spawn1;
         pos spawn2;
         pos spawn3;
@@ -206,15 +205,19 @@ public:
                 contadorLeerArchivo++;
             }
         }
-        std::string delimiter = ", ";
+
+        std::string delimiterTablero = ", ";
+        std::string delimiterSpawns = " - ";
 
         size_t index = 0;
+        size_t index2 = 0;
         std::string token;
 
         int i = 0;
         int j = 0;
 
-        while ((index = strTablero.find(delimiter)) != std::string::npos)
+        /*
+        while ((index = strTablero.find(delimiterTablero)) != std::string::npos)
         {
             token = strTablero.substr(0, index);
             std::cout << token << std::endl;
@@ -228,49 +231,41 @@ public:
                 tablero[i][j].esPared=false;
                 totalNum++;
             }
-            /*
-            else if(contador == 81){
-                spawn1.x = std::stoi(token);
-
-            }
-            else if(contador == 82){
-                spawn1.y = std::stoi(token);
-            }
-            else if(contador == 83){
-                spawn2.x = std::stoi(token);
-            }
-            else if(contador == 84){
-                spawn2.y = std::stoi(token);
-            }
-            else if(contador == 85){
-                spawn3.x = std::stoi(token);
-            }
-            else if(contador == 86){
-                spawn3.y = std::stoi(token);
-            }
-            else if(contador == 87){
-                spawn4.x = std::stoi(token);
-            }
-            */
-            strTablero.erase(0, index + delimiter.length());
+            strTablero.erase(0, index + delimiterTablero.length());
             i++;
-            if(i = 8)
+            if(i ==  8)
             {
                 i = 0;
                 j++;
             }
         }
-        tablero[i][j] = std::stoi(strTablero);
-
-
-
-
+        tablero[i][j].numero = std::stoi(strTablero);
+        */
 
         cantidadNumerosRestantes = totalNum;
         spawns[0] = spawn1;
         spawns[1] = spawn2;
         spawns[2] = spawn3;
         spawns[3] = spawn4;
+
+
+
+        while ((index = strSpawns.find(delimiterSpawns)) != std::string::npos)
+        {
+            token = strSpawns.substr(0, index);
+            std::cout << token << std::endl;
+
+            while ((index2 = strTablero.find(delimiterTablero)) != std::string::npos)
+            {
+                token = strTablero.substr(0, index2);
+                std::cout << token << std::endl;
+                strSpawns.erase(0, index + delimiterTablero.length());
+            }
+
+            strSpawns.erase(0, index + delimiterSpawns.length());
+        }
+        std::cout << strSpawns << std::endl;
+
 
         /*
         for(int i = 0 ; i< 8 ; i++){
