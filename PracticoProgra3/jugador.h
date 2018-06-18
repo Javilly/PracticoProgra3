@@ -18,17 +18,13 @@ public:
         this->posInicial = spawn;
         this->actualPos = spawn;
         this->isAPlayer = true;
+        this->vacio = false;
+        this->ultimoMov = arriba;
     }
     pos spawnPoint(){
         return posInicial;
     }
 
-
-
-
-    void kill(){
-        currentStatus = dead;
-    }
     bool revive(){
         if(life > 0){
             life--;

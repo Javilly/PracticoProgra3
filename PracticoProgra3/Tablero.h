@@ -2,6 +2,7 @@
 #define TABLERO_H_INCLUDED
 #include "Jugador.h"
 #include "Enemigo.h"
+#include "Vacio.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -10,8 +11,8 @@ using namespace std;
 
 struct casillero{
 int numero;
-Personaje* ocup;
-bool esPared;
+Personaje* ocup = new Vacio();
+bool esPared = false;
 };
 
 
@@ -62,7 +63,7 @@ public:
                     p.x-=1;
             break;
         }
-        return (tablero[p.x][p.y].ocup == NULL && !tablero[p.x][p.y].esPared);
+        return (tablero[p.x][p.y].ocup->vacio && !tablero[p.x][p.y].esPared);
     }
 
     int cantidadNumRes(){
@@ -71,7 +72,7 @@ public:
 
     void moverPersonaje(Personaje* personaje,movimiento mov){
         pos personajePos = personaje->actualPos;
-        tablero[personajePos.x][personajePos.y].ocup = NULL;
+        tablero[personajePos.x][personajePos.y].ocup= new Vacio();
         switch (mov){
             case arriba:
 
@@ -117,8 +118,52 @@ public:
         }
     }
 
+    bool DetectPlayer(movimiento mov, pos actualPos){
+        pos p = actualPos;
+        switch (mov){
+            case arriba:
+
+                if(p.y==0)
+                    p.y=8;
+                else
+                    p.y-=1;
+            break;
+
+            case abajo:
+
+                if(p.y==8)
+                    p.y=0;
+                else
+                    p.y+=1;
+            break;
+
+            case derecha:
+
+                if(p.x==8)
+                    p.x=0;
+                else
+                    p.x+=1;
+            break;
+
+            case izquierda:
+
+                if(p.x==0)
+                    p.x=8;
+                else
+                    p.x-=1;
+            break;
+        }
+
+       if(tablero[p.x][p.y].ocup->isAPlayer){
+         tablero[p.x][p.y].ocup->kill();
+        return true;
+       }
+
+        return false;
+    }
+
     void tryToRevive(Jugador* jugador){
-        if(tablero[jugador->spawnPoint().x][jugador->spawnPoint().y].ocup == NULL){
+        if(tablero[jugador->spawnPoint().x][jugador->spawnPoint().y].ocup->vacio){
             if(jugador->revive()){
                 jugador->actualPos = jugador->spawnPoint();
                 tablero[jugador->spawnPoint().x][jugador->spawnPoint().y].ocup = jugador;
