@@ -190,7 +190,7 @@ public:
         pos spawn4;
 
         std::string str;
-        std::ifstream file ("c.txt",std::ios::in);
+        std::ifstream file ("mapa.txt",std::ios::in);
 
         if (file) {
             while (!file.eof()) str.push_back(file.get());
