@@ -27,7 +27,41 @@ public:
         LeerTablero();
     }
 
-    bool compruebaCasillaVacia(pos p){
+    bool compruebaCasillaVacia(movimiento mov, pos actualPos){
+        pos p = actualPos;
+        switch (mov){
+            case arriba:
+
+                if(p.y==0)
+                    p.y=8;
+                else
+                    p.y-=1;
+            break;
+
+            case abajo:
+
+                if(p.y==8)
+                    p.y=0;
+                else
+                    p.y+=1;
+            break;
+
+            case derecha:
+
+                if(p.x==8)
+                    p.x=0;
+                else
+                    p.x+=1;
+            break;
+
+            case izquierda:
+
+                if(p.x==0)
+                    p.x=8;
+                else
+                    p.x-=1;
+            break;
+        }
         return (tablero[p.x][p.y].ocup == NULL && !tablero[p.x][p.y].esPared);
     }
 
