@@ -189,14 +189,23 @@ public:
         pos spawn3;
         pos spawn4;
 
-        std::string str;
+        std::string strTablero;
+        std::string strSpawns;
         std::ifstream file ("mapa.txt",std::ios::in);
 
+        int contadorLeerArchivo = 0;
         if (file) {
-            while (!file.eof()) str.push_back(file.get());
+            while (!file.eof())
+            {
+                if(contadorLeerArchivo < 9)
+                {
+                    strTablero.push_back(file.get());
+                }else{
+                    strSpawns.push_back(file.get());
+                }
+                contadorLeerArchivo++;
+            }
         }
-
-        std::cout << str << '\n';
         std::string delimiter = ", ";
 
         size_t index = 0;
@@ -204,23 +213,22 @@ public:
 
         int i = 0;
         int j = 0;
-        int contador = 0;
 
-        while ((index = str.find(delimiter)) != std::string::npos)
+        while ((index = strTablero.find(delimiter)) != std::string::npos)
         {
-            token = str.substr(0, index);
+            token = strTablero.substr(0, index);
             std::cout << token << std::endl;
 
-            if(contador <= 80){
-                tablero[i][j].numero = std::stoi(token);
-                if(std::stoi(token) == 0)
+            tablero[i][j].numero = std::stoi(token);
+
+            if(std::stoi(token) == 0)
                     tablero[i][j].esPared=true;
-                else
-                {
-                    tablero[i][j].esPared=false;
-                    totalNum++;
-                }
+            else
+            {
+                tablero[i][j].esPared=false;
+                totalNum++;
             }
+            /*
             else if(contador == 81){
                 spawn1.x = std::stoi(token);
 
@@ -243,8 +251,8 @@ public:
             else if(contador == 87){
                 spawn4.x = std::stoi(token);
             }
-            contador++;
-            str.erase(0, index + delimiter.length());
+            */
+            strTablero.erase(0, index + delimiter.length());
             i++;
             if(i = 8)
             {
@@ -252,7 +260,12 @@ public:
                 j++;
             }
         }
-        spawn4.y = std::stoi(str);
+        tablero[i][j] = std::stoi(strTablero);
+
+
+
+
+
         cantidadNumerosRestantes = totalNum;
         spawns[0] = spawn1;
         spawns[1] = spawn2;
