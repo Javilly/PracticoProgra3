@@ -216,7 +216,7 @@ public:
         int i = 0;
         int j = 0;
 
-        /*
+
         while ((index = strTablero.find(delimiterTablero)) != std::string::npos)
         {
             token = strTablero.substr(0, index);
@@ -240,7 +240,7 @@ public:
             }
         }
         tablero[i][j].numero = std::stoi(strTablero);
-        */
+
 
         cantidadNumerosRestantes = totalNum;
         spawns[0] = spawn1;
