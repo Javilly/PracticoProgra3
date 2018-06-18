@@ -2,6 +2,7 @@
 #define PERSONAJE_H_INCLUDED
 #include "string.h"
 #include <iostream>
+#include <stdlib.h>
 #include <time.h>
 #include <windows.h>
 
@@ -41,19 +42,21 @@ public:
 
     void GenerateMov(){
         int random;
+        int movAEvitar = (ultimoMov +2)%4;
         srand(time (NULL));
-        random = ((rand() % (4)));
-        if(random == ultimoMov)
+        random = rand() % (4);
+        if(random == movAEvitar)
             pociblesMov[0]=movimiento((random+2)%4);
+        else
+            pociblesMov[0]=movimiento(random);
 
         do{
-            srand(time (NULL));
             random = ((rand() % (4)));
-        }while(random == ultimoMov || random== pociblesMov[0]);
+        }while(random == movAEvitar || random== pociblesMov[0]);
 
         pociblesMov[1] = movimiento(random);
-        pociblesMov[2] = movimiento((pociblesMov[0]+pociblesMov[1]+ultimoMov)%4);
-        pociblesMov[3] = ultimoMov;
+        pociblesMov[2] = movimiento((pociblesMov[0]+pociblesMov[1]+movAEvitar)%4);
+        pociblesMov[3] = movimiento(movAEvitar);
 
     }
 

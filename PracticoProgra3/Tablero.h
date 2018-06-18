@@ -10,7 +10,7 @@ using namespace std;
 
 
 struct casillero{
-int numero;
+int numero = 0;
 Personaje* ocup = new Vacio();
 bool esPared = false;
 };
@@ -199,44 +199,52 @@ public:
         std::cout << str << '\n';
         std::string delimiter = ", ";
 
-        size_t pos = 0;
+        size_t index = 0;
         std::string token;
 
         int i = 0;
         int j = 0;
         int contador = 0;
 
-        while ((pos = str.find(delimiter)) != std::string::npos)
+        while ((index = str.find(delimiter)) != std::string::npos)
         {
-            token = str.substr(0, pos);
+            token = str.substr(0, index);
             std::cout << token << std::endl;
 
-            if(contador < 80){
-                tablero[i][j] = std::stoi(token);
+            if(contador <= 80){
+                tablero[i][j].numero = std::stoi(token);
+                if(std::stoi(token) == 0)
+                    tablero[i][j].esPared=true;
+                else
+                {
+                    tablero[i][j].esPared=false;
+                    totalNum++;
+                }
             }
-            else if(contador = 80){
-                spawn1.x = token;
-            }
-            else if(contador = 81){
-                spawn1.y = token;
-            }
-            else if(contador = 82){
-                spawn2.x = token;
-            }
-            else if(contador = 83){
-                spawn2.y = token;
-            }
-            else if(contador = 83){
-                spawn3.x = token;
-            }
-            else if(contador = 83){
-                spawn3.y = token;
-            }
-            else if(contador = 83){
-                spawn4.x = token;
-            }
+            else if(contador == 81){
+                spawn1.x = std::stoi(token);
 
-            str.erase(0, pos + delimiter.length());
+            }
+            else if(contador == 82){
+                spawn1.y = std::stoi(token);
+            }
+            else if(contador == 83){
+                spawn2.x = std::stoi(token);
+            }
+            else if(contador == 84){
+                spawn2.y = std::stoi(token);
+            }
+            else if(contador == 85){
+                spawn3.x = std::stoi(token);
+            }
+            else if(contador == 86){
+                spawn3.y = std::stoi(token);
+            }
+            else if(contador == 87){
+                spawn4.x = std::stoi(token);
+            }
+            contador++;
+            str.erase(0, index + delimiter.length());
             i++;
             if(i = 8)
             {
@@ -244,8 +252,8 @@ public:
                 j++;
             }
         }
-        spawn4.y = str;
-
+        spawn4.y = std::stoi(str);
+        cantidadNumerosRestantes = totalNum;
         spawns[0] = spawn1;
         spawns[1] = spawn2;
         spawns[2] = spawn3;

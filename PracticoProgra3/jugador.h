@@ -24,14 +24,16 @@ public:
     pos spawnPoint(){
         return posInicial;
     }
-
+    int VidasRestantes(){
+        return this->life;
+    }
     bool revive(){
         if(life > 0){
             life--;
             currentStatus = alive;
             return true;
         }
-            currentStatus = cantRevive;
+            currentStatus = outOfLifes;
             return false;
     }
 
