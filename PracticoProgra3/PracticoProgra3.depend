@@ -1,19 +1,26 @@
 # depslib dependency file v1.0
-1526991805 source:c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\main.cpp
-	"Tablero.h"
+1529412392 source:c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\main.cpp
+	"GameManager2.h"
 
-1526992245 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\tablero.h
+1529408284 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\tablero.h
 	"Jugador.h"
 	"Enemigo.h"
+	"Vacio.h"
+	<iostream>
+	<fstream>
+	<vector>
 
-1526992322 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\jugador.h
+1529410413 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\jugador.h
 	"personaje.h"
 
-1526991951 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\personaje.h
+1529408285 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\personaje.h
 	"string.h"
 	<iostream>
+	<stdlib.h>
+	<time.h>
+	<windows.h>
 
-1526391866 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\enemigo.h
+1529410413 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\enemigo.h
 	"Personaje.h"
 
 1528204292 source:c:\users\sistemas\documents\practicoprogra3\practicoprogra3\main.cpp
@@ -73,4 +80,16 @@
 	<mutex>
 
 1529351862 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\vacio.h
+
+1529408284 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\gamemanager2.h
+	"Tablero.h"
+	<thread>
+	<mutex>
+
+1529408284 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\vacio.h
+
+1529408933 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\gamemanager.h
+	"Tablero.h"
+	<thread>
+	<mutex>
 

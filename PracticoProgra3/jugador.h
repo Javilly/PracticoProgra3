@@ -11,8 +11,18 @@ private:
 
 public:
 
-
+    Jugador();
     Jugador(pos spawn){
+        this->currentStatus = alive;
+        this->puntos=0;
+        this->life = 3;
+        this->posInicial = spawn;
+        this->actualPos = spawn;
+        this->isAPlayer = true;
+        this->vacio = false;
+        this->ultimoMov = arriba;
+    }
+    void setVariables(pos spawn){
         this->currentStatus = alive;
         this->puntos=0;
         this->life = 3;
