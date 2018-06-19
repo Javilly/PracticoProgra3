@@ -189,18 +189,24 @@ public:
         pos spawn4;
 
         std::string strTablero;
-        std::string strSpawns;
+        std::string strSpawns12;
+        std::string strSpawns34;
         std::ifstream file ("mapa.txt",std::ios::in);
 
         int contadorLeerArchivo = 0;
         if (file) {
             while (!file.eof())
             {
-                if(contadorLeerArchivo < 9)
+                if(contadorLeerArchivo < 238)
                 {
                     strTablero.push_back(file.get());
-                }else{
-                    strSpawns.push_back(file.get());
+                }else if(contadorLeerArchivo >= 238 && contadorLeerArchivo <= 248)
+                {
+                    strSpawns12.push_back(file.get());
+                }
+                else
+                {
+                    strSpawns34.push_back(file.get());
                 }
                 contadorLeerArchivo++;
             }
@@ -212,11 +218,12 @@ public:
         size_t index = 0;
         size_t index2 = 0;
         std::string token;
+        std::string token2;
 
         int i = 0;
         int j = 0;
 
-
+        /*
         while ((index = strTablero.find(delimiterTablero)) != std::string::npos)
         {
             token = strTablero.substr(0, index);
@@ -240,6 +247,28 @@ public:
             }
         }
         tablero[i][j].numero = std::stoi(strTablero);
+        */
+
+
+
+        std::string stringSpawn1;
+        std::string stringSpawn2;
+        std::string stringSpawn3;
+        std::string stringSpawn4;
+        std::cout << "!!!!!!!!!!! " << strSpawns12 << endl;
+        std::cout << "??????????? " << strSpawns34 << endl;
+
+        while ((index = strSpawns12.find(delimiterSpawns)) != std::string::npos)
+        {
+            stringSpawn1 = strSpawns12.substr(0, index);
+            std::cout << "strSpawnOne: " << stringSpawn1;
+            strSpawns12.erase(0, index + delimiterSpawns.length());
+        }
+
+        stringSpawn2 = strSpawns12;
+
+
+        std::cout << stringSpawn2 << "strSpawnDos" << std::endl;
 
 
         cantidadNumerosRestantes = totalNum;
@@ -247,24 +276,6 @@ public:
         spawns[1] = spawn2;
         spawns[2] = spawn3;
         spawns[3] = spawn4;
-
-
-
-        while ((index = strSpawns.find(delimiterSpawns)) != std::string::npos)
-        {
-            token = strSpawns.substr(0, index);
-            std::cout << token << std::endl;
-
-            while ((index2 = strTablero.find(delimiterTablero)) != std::string::npos)
-            {
-                token = strTablero.substr(0, index2);
-                std::cout << token << std::endl;
-                strSpawns.erase(0, index + delimiterTablero.length());
-            }
-
-            strSpawns.erase(0, index + delimiterSpawns.length());
-        }
-        std::cout << strSpawns << std::endl;
 
 
         /*
