@@ -183,10 +183,6 @@ public:
 
     void LeerTablero(){  //Tablero fake para pruebas
         int totalNum = 0;
-        pos spawn1;
-        pos spawn2;
-        pos spawn3;
-        pos spawn4;
 
         std::string strTablero;
         std::string strSpawns12;
@@ -223,7 +219,7 @@ public:
         int i = 0;
         int j = 0;
 
-        /*
+
         while ((index = strTablero.find(delimiterTablero)) != std::string::npos)
         {
             token = strTablero.substr(0, index);
@@ -247,7 +243,7 @@ public:
             }
         }
         tablero[i][j].numero = std::stoi(strTablero);
-        */
+
 
 
 
@@ -255,20 +251,52 @@ public:
         std::string stringSpawn2;
         std::string stringSpawn3;
         std::string stringSpawn4;
-        std::cout << "!!!!!!!!!!! " << strSpawns12 << endl;
-        std::cout << "??????????? " << strSpawns34 << endl;
+
+
+        pos spawn1;
+        pos spawn2;
+        pos spawn3;
+        pos spawn4;
 
         while ((index = strSpawns12.find(delimiterSpawns)) != std::string::npos)
         {
             stringSpawn1 = strSpawns12.substr(0, index);
-            std::cout << "strSpawnOne: " << stringSpawn1;
+            std::cout << "strSpawnOne: " << stringSpawn1 << endl;
             strSpawns12.erase(0, index + delimiterSpawns.length());
         }
-
         stringSpawn2 = strSpawns12;
 
 
-        std::cout << stringSpawn2 << "strSpawnDos" << std::endl;
+        while ((index = stringSpawn1.find(delimiterTablero)) != std::string::npos)
+        {
+            spawn1.x = std::stoi(stringSpawn1.substr(0, index));
+            stringSpawn1.erase(0, index + delimiterTablero.length());
+        }
+        spawn1.y = std::stoi(stringSpawn1);
+
+
+        while ((index = stringSpawn2.find(delimiterTablero)) != std::string::npos)
+        {
+            spawn2.x = std::stoi(stringSpawn2.substr(0, index));
+            stringSpawn2.erase(0, index + delimiterTablero.length());
+        }
+        spawn2.y = std::stoi(stringSpawn2);
+
+
+        while ((index = stringSpawn3.find(delimiterTablero)) != std::string::npos)
+        {
+            spawn3.x = std::stoi(stringSpawn3.substr(0, index));
+            stringSpawn3.erase(0, index + delimiterTablero.length());
+        }
+        spawn3.y = std::stoi(stringSpawn3);
+
+
+        while ((index = stringSpawn4.find(delimiterTablero)) != std::string::npos)
+        {
+            spawn4.x = std::stoi(stringSpawn4.substr(0, index));
+            stringSpawn4.erase(0, index + delimiterTablero.length());
+        }
+        spawn4.y = std::stoi(stringSpawn4);
 
 
         cantidadNumerosRestantes = totalNum;
