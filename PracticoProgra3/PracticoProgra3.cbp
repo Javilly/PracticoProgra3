@@ -34,7 +34,9 @@
 		</Compiler>
 		<Unit filename="Enemigo.h" />
 		<Unit filename="GameManager.h" />
+		<Unit filename="GameManager2.h" />
 		<Unit filename="Tablero.h" />
+		<Unit filename="Vacio.h" />
 		<Unit filename="jugador.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="personaje.h" />

@@ -210,9 +210,7 @@ public:
 
         std::string delimiterTablero = ", ";
         std::string delimiterSpawns = " - ";
-
         size_t index = 0;
-        size_t index2 = 0;
         std::string token;
         std::string token2;
 
@@ -223,10 +221,8 @@ public:
         while ((index = strTablero.find(delimiterTablero)) != std::string::npos)
         {
             token = strTablero.substr(0, index);
-            std::cout << token << std::endl;
 
             tablero[i][j].numero = std::stoi(token);
-
             if(std::stoi(token) == 0)
                     tablero[i][j].esPared=true;
             else
@@ -240,12 +236,10 @@ public:
             {
                 i = 0;
                 j++;
+
             }
         }
         tablero[i][j].numero = std::stoi(strTablero);
-
-
-
 
         std::string stringSpawn1;
         std::string stringSpawn2;

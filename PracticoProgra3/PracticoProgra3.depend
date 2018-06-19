@@ -41,7 +41,7 @@
 1529353855 source:c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\main.cpp
 	"GameManager2.h"
 
-1529357564 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\tablero.h
+1529374194 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\tablero.h
 	"Jugador.h"
 	"Enemigo.h"
 	"Vacio.h"
@@ -49,7 +49,7 @@
 	<fstream>
 	<vector>
 
-1529356269 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\jugador.h
+1529373510 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\jugador.h
 	"personaje.h"
 
 1529356176 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\personaje.h
