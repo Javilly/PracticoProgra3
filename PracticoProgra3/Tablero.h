@@ -255,7 +255,7 @@ public:
         while ((index = strSpawns12.find(delimiterSpawns)) != std::string::npos)
         {
             stringSpawn1 = strSpawns12.substr(0, index);
-            std::cout << stringSpawn1 << endl;
+
             strSpawns12.erase(0, index + delimiterSpawns.length());
         }
         stringSpawn2 = strSpawns12;
@@ -264,7 +264,7 @@ public:
         while ((index = strSpawns34.find(delimiterSpawns)) != std::string::npos)
         {
             stringSpawn3 = strSpawns34.substr(0, index);
-            std::cout << stringSpawn3 << endl;
+
             strSpawns34.erase(0, index + delimiterSpawns.length());
         }
         stringSpawn4 = strSpawns34;

@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1529412392 source:c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\main.cpp
-	"GameManager2.h"
+1529414674 source:c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\main.cpp
+	"GameManager.h"
 
-1529408284 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\tablero.h
+1529415129 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\tablero.h
 	"Jugador.h"
 	"Enemigo.h"
 	"Vacio.h"
@@ -88,7 +88,7 @@
 
 1529408284 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\vacio.h
 
-1529408933 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\gamemanager.h
+1529415474 c:\users\sistemas\desktop\esteban borgogno\c++\practicoprogram3\practicoprogra3\gamemanager.h
 	"Tablero.h"
 	<thread>
 	<mutex>
