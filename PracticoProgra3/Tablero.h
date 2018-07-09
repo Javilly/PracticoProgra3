@@ -355,6 +355,7 @@ public:
         FILE * tableroLayout;
         char buffer[20];
         int p, myNumber;
+        int totalNum = 0;
 
         tableroLayout = fopen("mapa.txt", "r");
         std::string extractedNumber, currentLine;
@@ -379,9 +380,12 @@ public:
                 else
                 {
                     tablero[i][j].esPared=false;
+                    totalNum++;
                 }
             }
         }
+
+        cantidadNumerosRestantes = totalNum;
 
         fgets (buffer, 100, tableroLayout);
         currentLine = buffer;

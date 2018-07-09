@@ -23,10 +23,10 @@ public:
         bool canMove;
         int contador;
 
-        jugador1=new Jugador(tablero->obtenerSpawn(0));
-        jugador2=new Jugador(tablero->obtenerSpawn(1));
-        enemigo1=new Enemigo(tablero->obtenerSpawn(2));
-        enemigo2=new Enemigo(tablero->obtenerSpawn(3));
+        jugador1=new Jugador(tablero->obtenerSpawn(0), "Jugador1");
+        jugador2=new Jugador(tablero->obtenerSpawn(1), "Jugador1");
+        enemigo1=new Enemigo(tablero->obtenerSpawn(2), "Enemy");
+        enemigo2=new Enemigo(tablero->obtenerSpawn(3), "Enemy");
 
         while(tablero->cantidadNumRes() > 0 && (jugador1->currentStatus!=outOfLifes || jugador2->currentStatus!=outOfLifes)){
             if(jugador1->currentStatus!=outOfLifes){
@@ -109,10 +109,57 @@ public:
                 if(contador<4)
                     tablero->moverPersonaje(enemigo2,enemigo2->getMov(contador));
 
+
+            /*
             std::cout<<"Pj1 "<< jugador1->actualPos.x <<","<< jugador1->actualPos.y<<"Puntos : "<< jugador1->puntos << " Vidas restantes : " << jugador1->VidasRestantes() <<std::endl;
             std::cout<<"Pj2 "<< jugador2->actualPos.x <<","<< jugador2->actualPos.y<<"Puntos : "<< jugador2->puntos << " Vidas restantes : " << jugador2->VidasRestantes() <<std::endl;
             std::cout<<"Enm1 "<< enemigo1->actualPos.x <<","<< enemigo1->actualPos.y<<std::endl;
             std::cout<<"Enm2 "<< enemigo2->actualPos.x <<","<< enemigo2->actualPos.y<<std::endl;
+            */
+
+                for (int i = 0; i < 9; i++)
+                {
+                    for (int j = 0; j < 9; j++)
+                    {
+                        std::cout << " ";
+
+                        if (tablero[i][j].esPared == true)
+                        {
+                            if(tablero[i)[j).ocupante.name == "Jugador1")
+                            {
+                                SetConsoleTextAttribute(hConsole, 3);
+
+                                std::cout << "T";
+
+                                SetConsoleTextAttribute(hConsole, 15);
+                            }
+                            else if(tablero[i)[j).ocupante.name == "Jugador2")
+                            {
+                                SetConsoleTextAttribute(hConsole, 5);
+
+                                std::cout << "T";
+
+                                SetConsoleTextAttribute(hConsole, 15);
+                            }
+                            else
+                            {
+                                SetConsoleTextAttribute(hConsole, 4);
+
+                                std::cout << "T";
+
+                                SetConsoleTextAttribute(hConsole, 15);
+                            }
+                            std::cout << " ";
+                        }
+                        else
+                        {
+                            std::cout << "█";
+                        }
+                    }
+
+                    std::cout << "\n";
+                    std::cout << "";
+                }
 
         }
 
