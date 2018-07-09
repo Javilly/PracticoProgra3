@@ -1,6 +1,9 @@
 #ifndef GAMEMANAGER_H_INCLUDED
 #define GAMEMANAGER_H_INCLUDED
 #include "Tablero.h"
+#include <windows.h>
+#include <stdio.h>
+#include "conio.h"
 #include <thread>
 #include <mutex>
 
@@ -21,6 +24,65 @@ void CheckWinner(Tablero* tablero, Jugador* jugador1, Jugador* jugador2){
         }
     }
 }
+
+void PrintTablero(Tablero* tablero,Jugador* jugador1, Jugador* jugador2){
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        while(tablero->cantidadNumRes() > 0 && (jugador1->currentStatus!=outOfLifes || jugador2->currentStatus!=outOfLifes)){
+            accesoTablero.lock();
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+
+
+                    if (tablero->ObtenerCasilla(i,j).esPared == true)
+                    {
+                       std::cout<< " X";
+                    }
+                    else
+                    {
+                        if(tablero->ObtenerCasilla(i,j).ocup->name == "Jugador1")
+                            {
+                            SetConsoleTextAttribute(hConsole, 3);
+
+                            std::cout << " P";
+
+                            SetConsoleTextAttribute(hConsole, 15);
+                        }
+                        else if(tablero->ObtenerCasilla(i,j).ocup->name == "Jugador2")
+                        {
+                            SetConsoleTextAttribute(hConsole, 5);
+
+                            std::cout << " P";
+
+                            SetConsoleTextAttribute(hConsole, 15);
+                        }
+                        else if(tablero->ObtenerCasilla(i,j).ocup->name == "Enemy")
+                        {
+                            SetConsoleTextAttribute(hConsole, 4);
+
+                            std::cout << " E";
+
+                            SetConsoleTextAttribute(hConsole, 15);
+                        }
+                        else if(tablero->ObtenerCasilla(i,j).numero != 0){
+                            if (tablero->ObtenerCasilla(i,j).numero > 0)
+                                std::cout << " ";
+
+                            cout << tablero->ObtenerCasilla(i,j).numero;
+                        }else{
+                            std::cout << "  ";
+                        }
+
+                    }
+                    std::cout << " ";
+                }
+                std::cout << "\n";
+                std::cout << "";
+            }
+            accesoTablero.unlock();
+        }
+    }
 
 void EnemyCicle(Enemigo* enemigo,Tablero* tablero,Jugador* jugador1, Jugador* jugador2){
     bool canMove;
@@ -95,19 +157,21 @@ public:
         tablero = new Tablero();
     }
     void StartGame(){
-        jugador1=new Jugador(tablero->obtenerSpawn(0));
-        jugador2=new Jugador(tablero->obtenerSpawn(1));
+        jugador1=new Jugador(tablero->obtenerSpawn(0),"Jugador1");
+        jugador2=new Jugador(tablero->obtenerSpawn(1),"Jugador2");
         enemigo1=new Enemigo(tablero->obtenerSpawn(2));
         enemigo2=new Enemigo(tablero->obtenerSpawn(3));
         thread player1(PlayerCicle,jugador1,tablero);
         thread player2(PlayerCicle,jugador2,tablero);
         thread enemy1(EnemyCicle,enemigo1,tablero,jugador1,jugador2);
         thread enemy2(EnemyCicle,enemigo2,tablero,jugador1,jugador2);
+        thread imprTablero(PrintTablero,tablero,jugador1,jugador2);
 
         player1.join();
         player2.join();
         enemy1.join();
         enemy2.join();
+        imprTablero.join();
     }
 };
 

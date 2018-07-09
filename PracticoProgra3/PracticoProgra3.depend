@@ -45,10 +45,10 @@
 1528202307 c:\users\sistemas\documents\practicoprogra3\practicoprogra3\enemigo.h
 	"Personaje.h"
 
-1529353855 source:c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\main.cpp
+1531121984 source:c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\main.cpp
 	"GameManager2.h"
 
-1529374194 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\tablero.h
+1531121921 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\tablero.h
 	"Jugador.h"
 	"Enemigo.h"
 	"Vacio.h"
@@ -56,17 +56,17 @@
 	<fstream>
 	<vector>
 
-1529373510 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\jugador.h
+1531119513 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\jugador.h
 	"personaje.h"
 
-1529356176 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\personaje.h
+1531119512 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\personaje.h
 	"string.h"
 	<iostream>
 	<stdlib.h>
 	<time.h>
 	<windows.h>
 
-1529351862 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\enemigo.h
+1531119514 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\enemigo.h
 	"Personaje.h"
 
 1529350324 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\gamemanager.h
@@ -74,8 +74,11 @@
 	<thread>
 	<mutex>
 
-1529356651 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\gamemanager2.h
+1531123097 c:\users\core-i5\desktop\facu\programacion 3\tp\practicoprogra3\gamemanager2.h
 	"Tablero.h"
+	<windows.h>
+	<stdio.h>
+	"conio.h"
 	<thread>
 	<mutex>
 

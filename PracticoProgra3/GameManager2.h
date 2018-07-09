@@ -1,6 +1,9 @@
 #ifndef GAMEMANAGER_H_INCLUDED
 #define GAMEMANAGER_H_INCLUDED
 #include "Tablero.h"
+#include <windows.h>
+#include <stdio.h>
+#include "conio.h"
 #include <thread>
 #include <mutex>
 
@@ -24,7 +27,7 @@ public:
         int contador;
 
         jugador1=new Jugador(tablero->obtenerSpawn(0), "Jugador1");
-        jugador2=new Jugador(tablero->obtenerSpawn(1), "Jugador1");
+        jugador2=new Jugador(tablero->obtenerSpawn(1), "Jugador2");
         enemigo1=new Enemigo(tablero->obtenerSpawn(2));
         enemigo2=new Enemigo(tablero->obtenerSpawn(3));
 
@@ -118,6 +121,7 @@ public:
             */
 
             PrintTablero();
+            system("cls");
 
         }
 
@@ -143,49 +147,54 @@ private:
 
 
     void PrintTablero(){
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
         for (int i = 0; i < 9; i++)
         {
             for (int j = 0; j < 9; j++)
             {
-                std::cout << " ";
 
-                if (talbero->ObtenerCasilla(i,j),esPared.esPared == true)
+
+                if (tablero->ObtenerCasilla(i,j).esPared == true)
                 {
-                    if(talbero->ObtenerCasilla(i,j),esPared.ocupante.name == "Jugador1")
-                        {
-                        SetConsoleTextAttribute(hConsole, 3);
-
-                        std::cout << "T";
-
-                        SetConsoleTextAttribute(hConsole, 15);
-                    }
-                    else if(talbero->ObtenerCasilla(i,j),esPared.ocupante.name == "Jugador2")
-                    {
-                        SetConsoleTextAttribute(hConsole, 5);
-
-                        std::cout << "T";
-
-                        SetConsoleTextAttribute(hConsole, 15);
-                    }
-                    else
-                    {
-                        SetConsoleTextAttribute(hConsole, 4);
-
-                        std::cout << "T";
-
-                        SetConsoleTextAttribute(hConsole, 15);
-                    }
-                    std::cout << " ";
+                   std::cout<< " X";
                 }
                 else
                 {
-                    if(cout << talbero->ObtenerCasilla(i,j),esPared.numero != 0){
-                        cout << talbero->ObtenerCasilla(i,j),esPared.numero;
+                    if(tablero->ObtenerCasilla(i,j).ocup->name == "Jugador1")
+                        {
+                        SetConsoleTextAttribute(hConsole, 3);
+
+                        std::cout << " P";
+
+                        SetConsoleTextAttribute(hConsole, 15);
+                    }
+                    else if(tablero->ObtenerCasilla(i,j).ocup->name == "Jugador2")
+                    {
+                        SetConsoleTextAttribute(hConsole, 5);
+
+                        std::cout << " P";
+
+                        SetConsoleTextAttribute(hConsole, 15);
+                    }
+                    else if(tablero->ObtenerCasilla(i,j).ocup->name == "Enemy")
+                    {
+                        SetConsoleTextAttribute(hConsole, 4);
+
+                        std::cout << " E";
+
+                        SetConsoleTextAttribute(hConsole, 15);
+                    }
+                    else if(tablero->ObtenerCasilla(i,j).numero != 0){
+                        if (tablero->ObtenerCasilla(i,j).numero > 0)
+                            std::cout << " ";
+
+                        cout << tablero->ObtenerCasilla(i,j).numero;
                     }else{
-                        std::cout << "█";
+                        std::cout << "  ";
                     }
 
                 }
+                std::cout << " ";
             }
             std::cout << "\n";
             std::cout << "";
