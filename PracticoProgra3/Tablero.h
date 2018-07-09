@@ -437,6 +437,11 @@ public:
         spawns[3] = spawn4;
     }
 
+    casillero ObtenerCasilla(int x, int y)
+    {
+        return tablero[x][y];
+    }
+
 };
 
 

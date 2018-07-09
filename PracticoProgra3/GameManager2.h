@@ -25,8 +25,8 @@ public:
 
         jugador1=new Jugador(tablero->obtenerSpawn(0), "Jugador1");
         jugador2=new Jugador(tablero->obtenerSpawn(1), "Jugador1");
-        enemigo1=new Enemigo(tablero->obtenerSpawn(2), "Enemy");
-        enemigo2=new Enemigo(tablero->obtenerSpawn(3), "Enemy");
+        enemigo1=new Enemigo(tablero->obtenerSpawn(2));
+        enemigo2=new Enemigo(tablero->obtenerSpawn(3));
 
         while(tablero->cantidadNumRes() > 0 && (jugador1->currentStatus!=outOfLifes || jugador2->currentStatus!=outOfLifes)){
             if(jugador1->currentStatus!=outOfLifes){
@@ -117,49 +117,7 @@ public:
             std::cout<<"Enm2 "<< enemigo2->actualPos.x <<","<< enemigo2->actualPos.y<<std::endl;
             */
 
-                for (int i = 0; i < 9; i++)
-                {
-                    for (int j = 0; j < 9; j++)
-                    {
-                        std::cout << " ";
-
-                        if (tablero[i][j].esPared == true)
-                        {
-                            if(tablero[i)[j).ocupante.name == "Jugador1")
-                            {
-                                SetConsoleTextAttribute(hConsole, 3);
-
-                                std::cout << "T";
-
-                                SetConsoleTextAttribute(hConsole, 15);
-                            }
-                            else if(tablero[i)[j).ocupante.name == "Jugador2")
-                            {
-                                SetConsoleTextAttribute(hConsole, 5);
-
-                                std::cout << "T";
-
-                                SetConsoleTextAttribute(hConsole, 15);
-                            }
-                            else
-                            {
-                                SetConsoleTextAttribute(hConsole, 4);
-
-                                std::cout << "T";
-
-                                SetConsoleTextAttribute(hConsole, 15);
-                            }
-                            std::cout << " ";
-                        }
-                        else
-                        {
-                            std::cout << "█";
-                        }
-                    }
-
-                    std::cout << "\n";
-                    std::cout << "";
-                }
+            PrintTablero();
 
         }
 
@@ -179,6 +137,58 @@ private:
             else{
                 std::cout<<"Gana el jugador 1 con " << jugador1->puntos << " puntos";
             }
+        }
+    }
+
+
+
+    void PrintTablero(){
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                std::cout << " ";
+
+                if (talbero->ObtenerCasilla(i,j),esPared.esPared == true)
+                {
+                    if(talbero->ObtenerCasilla(i,j),esPared.ocupante.name == "Jugador1")
+                        {
+                        SetConsoleTextAttribute(hConsole, 3);
+
+                        std::cout << "T";
+
+                        SetConsoleTextAttribute(hConsole, 15);
+                    }
+                    else if(talbero->ObtenerCasilla(i,j),esPared.ocupante.name == "Jugador2")
+                    {
+                        SetConsoleTextAttribute(hConsole, 5);
+
+                        std::cout << "T";
+
+                        SetConsoleTextAttribute(hConsole, 15);
+                    }
+                    else
+                    {
+                        SetConsoleTextAttribute(hConsole, 4);
+
+                        std::cout << "T";
+
+                        SetConsoleTextAttribute(hConsole, 15);
+                    }
+                    std::cout << " ";
+                }
+                else
+                {
+                    if(cout << talbero->ObtenerCasilla(i,j),esPared.numero != 0){
+                        cout << talbero->ObtenerCasilla(i,j),esPared.numero;
+                    }else{
+                        std::cout << "█";
+                    }
+
+                }
+            }
+            std::cout << "\n";
+            std::cout << "";
         }
     }
 };
