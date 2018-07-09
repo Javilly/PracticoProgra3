@@ -25,6 +25,7 @@ izquierda
 
 class Personaje{
 public:
+    std::string name;
     estadoJugador currentStatus;
     movimiento ultimoMov;
     int puntos;

@@ -12,10 +12,11 @@ private:
 public:
 
     Jugador();
-    Jugador(pos spawn){
+    Jugador(pos spawn, std::string name){
         this->currentStatus = alive;
         this->puntos=0;
         this->life = 3;
+        this->name = name;
         this->posInicial = spawn;
         this->actualPos = spawn;
         this->isAPlayer = true;

@@ -12,6 +12,7 @@ public:
         this->isAPlayer = false;
         this->actualPos=spawn;
         this->ultimoMov = arriba;
+        this->name = "Enemy";
     }
     void setVariables(pos spawn){
         this->vacio = false;
