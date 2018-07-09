@@ -354,23 +354,23 @@ public:
 
         FILE * tableroLayout;
         char buffer[20];
-        int pos, myNumber;
+        int p, myNumber;
 
         tableroLayout = fopen("mapa.txt", "r");
         std::string extractedNumber, currentLine;
 
-        for (int i = 0; i < this->filas; i++)
+        for (int i = 0; i < 9; i++)
         {
             fgets (buffer , 100 , tableroLayout);
             std::string currentLine = buffer;
-            for (int j = 0; j < this->filas; j++)
+            for (int j = 0; j < 9; j++)
             {
-                pos = currentLine.find(",");
-                extractedNumber = currentLine.substr(0, pos);
-                currentLine = currentLine.substr(pos + 1);
+                p = currentLine.find(",");
+                extractedNumber = currentLine.substr(0, p);
+                currentLine = currentLine.substr(p + 1);
                 myNumber = atoi(extractedNumber.c_str());
 
-                tablero[i][j].numero = std::stoi(myNumber);
+                tablero[i][j].numero = myNumber;
 
                 if (myNumber == 0)
                 {
@@ -393,17 +393,17 @@ public:
 
         for (int i = 0; i < 2; i++)
         {
-            pos = currentLine.find(",");
-            std::string extractedPos = currentLine.substr(0, pos);
-            currentLine = currentLine.substr(pos + 1);
-            pos = extractedPos.find("-");
+            p = currentLine.find(",");
+            std::string extractedPos = currentLine.substr(0, p);
+            currentLine = currentLine.substr(p + 1);
+            p = extractedPos.find("-");
 
             if(i == 0){
-                spawn1.x = atoi(extractedPos.substr(0, pos).c_str();
-                spawn1.y = atoi(extractedPos.substr(pos + 1, 1).c_str()))
+                spawn1.x = atoi(extractedPos.substr(0, p).c_str());
+                spawn1.y = atoi(extractedPos.substr(p + 1, 1).c_str());
             }else{
-                spawn2.x = atoi(extractedPos.substr(0, pos).c_str();
-                spawn2.y = atoi(extractedPos.substr(pos + 1, 1).c_str()))
+                spawn2.x = atoi(extractedPos.substr(0, p).c_str());
+                spawn2.y = atoi(extractedPos.substr(p + 1, 1).c_str());
             }
 
         }
@@ -413,17 +413,17 @@ public:
 
         for (int i = 0; i < 2; i++)
         {
-            pos = currentLine.find(",");
-            std::string extractedPos = currentLine.substr(0, pos);
-            currentLine = currentLine.substr(pos + 1);
-            pos = extractedPos.find("-");
+            p = currentLine.find(",");
+            std::string extractedPos = currentLine.substr(0, p);
+            currentLine = currentLine.substr(p + 1);
+            p = extractedPos.find("-");
 
             if(i == 0){
-                spawn3.x = atoi(extractedPos.substr(0, pos).c_str();
-                spawn3.y = atoi(extractedPos.substr(pos + 1, 1).c_str()))
+                spawn3.x = atoi(extractedPos.substr(0, p).c_str());
+                spawn3.y = atoi(extractedPos.substr(p + 1, 1).c_str());
             }else{
-                spawn4.x = atoi(extractedPos.substr(0, pos).c_str();
-                spawn4.y = atoi(extractedPos.substr(pos + 1, 1).c_str()))
+                spawn4.x = atoi(extractedPos.substr(0, p).c_str());
+                spawn4.y = atoi(extractedPos.substr(p + 1, 1).c_str());
             }
         }
 
