@@ -181,7 +181,10 @@ public:
     }
 
 
-    void LeerTablero(){  //Tablero fake para pruebas
+    void LeerTablero()
+    {  //Tablero fake para pruebas
+
+        /*
         int totalNum = 0;
 
         std::string strTablero;
@@ -223,6 +226,7 @@ public:
             token = strTablero.substr(0, index);
 
             tablero[i][j].numero = std::stoi(token);
+
             if(std::stoi(token) == 0)
                     tablero[i][j].esPared=true;
             else
@@ -309,7 +313,7 @@ public:
         spawns[3] = spawn4;
 
 
-        /*
+
         for(int i = 0 ; i< 8 ; i++){
             for(int j = 0 ; j< 8 ; j++){
                 tablero[i][j].numero = numero;
@@ -348,7 +352,86 @@ public:
         spawns[3] = spawn4;
         */
 
+        FILE * tableroLayout;
+        char buffer[20];
+        int pos, myNumber;
+
+        tableroLayout = fopen("mapa.txt", "r");
+        std::string extractedNumber, currentLine;
+
+        for (int i = 0; i < this->filas; i++)
+        {
+            fgets (buffer , 100 , tableroLayout);
+            std::string currentLine = buffer;
+            for (int j = 0; j < this->filas; j++)
+            {
+                pos = currentLine.find(",");
+                extractedNumber = currentLine.substr(0, pos);
+                currentLine = currentLine.substr(pos + 1);
+                myNumber = atoi(extractedNumber.c_str());
+
+                tablero[i][j].numero = std::stoi(myNumber);
+
+                if (myNumber == 0)
+                {
+                    tablero[i][j].esPared=true;
+                }
+                else
+                {
+                    tablero[i][j].esPared=false;
+                }
+            }
         }
+
+        fgets (buffer, 100, tableroLayout);
+        currentLine = buffer;
+
+        pos spawn1;
+        pos spawn2;
+        pos spawn3;
+        pos spawn4;
+
+        for (int i = 0; i < 2; i++)
+        {
+            pos = currentLine.find(",");
+            std::string extractedPos = currentLine.substr(0, pos);
+            currentLine = currentLine.substr(pos + 1);
+            pos = extractedPos.find("-");
+
+            if(i == 0){
+                spawn1.x = atoi(extractedPos.substr(0, pos).c_str();
+                spawn1.y = atoi(extractedPos.substr(pos + 1, 1).c_str()))
+            }else{
+                spawn2.x = atoi(extractedPos.substr(0, pos).c_str();
+                spawn2.y = atoi(extractedPos.substr(pos + 1, 1).c_str()))
+            }
+
+        }
+
+        fgets (buffer, 100, tableroLayout);
+        currentLine = buffer;
+
+        for (int i = 0; i < 2; i++)
+        {
+            pos = currentLine.find(",");
+            std::string extractedPos = currentLine.substr(0, pos);
+            currentLine = currentLine.substr(pos + 1);
+            pos = extractedPos.find("-");
+
+            if(i == 0){
+                spawn3.x = atoi(extractedPos.substr(0, pos).c_str();
+                spawn3.y = atoi(extractedPos.substr(pos + 1, 1).c_str()))
+            }else{
+                spawn4.x = atoi(extractedPos.substr(0, pos).c_str();
+                spawn4.y = atoi(extractedPos.substr(pos + 1, 1).c_str()))
+            }
+        }
+
+        spawns[0] = spawn1;
+        spawns[1] = spawn2;
+        spawns[2] = spawn3;
+        spawns[3] = spawn4;
+    }
 
 };
 
